@@ -38,7 +38,7 @@ modulelist = [
 ]
 
 def parse_args():
-    '''解析类'''
+    '''解析参数'''
     parser = argparse.ArgumentParser()
     parser.add_argument('-m','--modules',dest="modules",nargs = "*",help="choose module")
     parser.add_argument('-a','--all',dest="is_all",action='store_true',default=False,help="choose all module")
@@ -52,9 +52,25 @@ def main():
         print 'You can choose these modules:'
         for x in modulelist:
             print ' '*4,x
+
     if p.is_all:
         '''执行所有安装步骤'''
-        pass
+        initenv.run()
+        install_base.run()
+        install_depends.run()
+        install_jdk.run()
+        install_andsdk.run()
+        install_mq.run()
+        install_mysql.run()
+        install_engine.run()
+        install_kav.run()
+        install_avast.run()
+        install_cyren.run()
+        install_fsecure.run()
+        install_web.run()
+        install_adb.run()
+        install_others.run()
+
     if p.modules:
         for m in p.modules:
 	    #判断传入的模块合法性验证
