@@ -18,6 +18,7 @@ from handler import install_web
 from handler import install_adb
 from handler import install_others
 import sys
+import os
 
 modulelist = [
 'initenv',
@@ -126,9 +127,12 @@ def main():
                
 
 if __name__ == "__main__":
+    if os.environ['USER'] != 'root':
+        print 'You must run this script with root !!!'
+        sys.exit(1)
     if len(sys.argv) < 2:
         print '''
-usage: main.py [-h] [-m [MODULES [MODULES ...]]] [-a] [-l]
+usage: python main.py [-h] [-m [MODULES [MODULES ...]]] [-a] [-l]
 
 optional arguments:
   -h, --help            show this help message and exit
