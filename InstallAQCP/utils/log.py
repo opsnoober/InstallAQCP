@@ -1,7 +1,7 @@
 #-*-coding:utf-8-*-
 import logging
 format_dict = {
-   1 : logging.Formatter('%(levelname)s - %(asctime)s - %(filename)s - %(message)s'),
+   1 : logging.Formatter('%(levelname)s - %(asctime)s - %(module)s - %(message)s'),
    2 : logging.Formatter('%(levelname)s - %(asctime)s - %(funcName)s - %(message)s'),
    3 : logging.Formatter('%(levelname)s - %(asctime)s - %(funcName)s - %(message)s'),
    4 : logging.Formatter('%(levelname)s - %(asctime)s - %(funcName)s - %(message)s'),
