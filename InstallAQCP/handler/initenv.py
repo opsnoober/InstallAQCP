@@ -34,7 +34,6 @@ export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$ANDROID_HOME:$ANDROID_TOOL:$PATH
         f.write(profile_env)
         f.write('\n')
 
-    os.mknod(lockfile)
     os.system('chown secneo. /etc/network/interfaces')
 
 def conf_apt():
@@ -56,6 +55,7 @@ def run():
     else:
         conf_env()
         conf_apt()
+        os.mknod(lockfile)
 
 if __name__ == "__main__":
     run()

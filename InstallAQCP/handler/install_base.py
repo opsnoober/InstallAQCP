@@ -21,6 +21,8 @@ def run():
         sys.exit(1)
     else:
         install_base()
+        os.mknod(lockfile)
+
 
 if __name__ == "__main__":
     run()

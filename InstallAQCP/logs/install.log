@@ -20,3 +20,9 @@ INFO - 2016-08-29 16:37:22,100 - add_log - +++++++++++++ begin handler.initenv +
 INFO - 2016-08-29 16:37:26,739 - add_log - +++++++++++++ finish handler.initenv +++++++++++++++++++++++
 INFO - 2016-08-29 17:25:00,763 - add_log - +++++++++++++ begin handler.install_base +++++++++++++++++++++++
 INFO - 2016-08-29 17:25:01,434 - add_log - +++++++++++++ finish handler.install_base +++++++++++++++++++++++
+INFO - 2016-08-29 17:35:39,352 - add_log - +++++++++++++ begin handler.install_base +++++++++++++++++++++++
+INFO - 2016-08-29 17:36:50,456 - add_log - +++++++++++++ begin handler.install_base +++++++++++++++++++++++
+INFO - 2016-08-29 17:37:46,702 - add_log - +++++++++++++ begin handler.install_base +++++++++++++++++++++++
+INFO - 2016-08-29 17:38:59,128 - add_log - +++++++++++++ begin handler.install_base +++++++++++++++++++++++
+INFO - 2016-08-29 17:38:59,669 - add_log - +++++++++++++ finish handler.install_base +++++++++++++++++++++++
+INFO - 2016-08-29 17:39:03,896 - add_log - +++++++++++++ begin handler.install_base +++++++++++++++++++++++
