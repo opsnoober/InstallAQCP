@@ -7,7 +7,7 @@ from utils.add_log import add_log
 
 basedir = os.path.split(os.path.realpath(__file__))[0] 
 lockfile = os.path.join(os.path.dirname(basedir),'lock','initenv.lck')
-apt_pkgs = os.path.join(os.path.dirname(basedir),'res','archives')
+apt_pkgs = os.path.join(os.path.dirname(basedir),'libs','debs','archives')
 apt_sources_conf = os.path.join(os.path.dirname(basedir),'settings','sources.list')
 apt_conf = os.path.join(os.path.dirname(basedir),'settings','apt.conf')
 
