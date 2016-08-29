@@ -6,7 +6,7 @@ sys.path.append('../')
 from utils.add_log import add_log
 
 basedir = os.path.split(os.path.realpath(__file__))[0] 
-lockfile = os.path.join(os.path.dirname(basedir),'lock','install_depends.lck')
+lockfile = os.path.join(os.path.dirname(basedir),'lock','install_base.lck')
 base_list = ['gcc','g++','make','zip','unzip','lrzsz','python-pip','python-dev']
 
 def install_base():
