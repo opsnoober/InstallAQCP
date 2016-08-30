@@ -49,6 +49,8 @@ def conf_apt():
     child = subprocess.Popen(['apt-get','update'],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     (out,err) = child.communicate()
     logger.info(out)
+    if err:
+        logger.error(err)
     
 
 def run():
