@@ -4,6 +4,7 @@ import shutil
 import subprocess
 sys.path.append('../')
 from utils.log import Logger
+from utils.config import Get_data
 
 basedir = os.path.split(os.path.realpath(__file__))[0] 
 lockfile = os.path.join(os.path.dirname(basedir),'lock','initenv.lck')
@@ -11,6 +12,10 @@ logger = Logger(logname=os.path.join(os.path.dirname(basedir),'logs','install.lo
 apt_pkgs = os.path.join(os.path.dirname(basedir),'libs','debs','archives')
 apt_sources_conf = os.path.join(os.path.dirname(basedir),'settings','sources.list')
 apt_conf = os.path.join(os.path.dirname(basedir),'settings','apt.conf')
+getdata = Get_data(os.path.join(os.path.dirname(basedir),'conf.ini'))
+user = getdata.Show_option_data('global','user')
+group = getdata.Show_option_data('global','group')
+
 
 def conf_env():
     sudo_nopass = '''
@@ -35,7 +40,8 @@ export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$ANDROID_HOME:$ANDROID_TOOL:$PATH
         f.write(profile_env)
         f.write('\n')
 
-    os.system('chown secneo. /etc/network/interfaces')
+    subprocess.check_output(['chown','%s:%s'%(user,group),'/etc/network/interfaces'])
+
 
 def conf_apt():
     os.rename("/etc/apt/sources.list","/etc/apt/sources.list.bak")
