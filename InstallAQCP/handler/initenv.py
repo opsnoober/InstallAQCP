@@ -3,10 +3,11 @@ import os
 import shutil
 import subprocess
 sys.path.append('../')
-from utils.add_log import add_log
+from utils.log import Logger
 
 basedir = os.path.split(os.path.realpath(__file__))[0] 
 lockfile = os.path.join(os.path.dirname(basedir),'lock','initenv.lck')
+logger = Logger(logname=os.path.join(os.path.dirname(basedir),'logs','install.log'),loglevel=1,logger='initenv').getlog()
 apt_pkgs = os.path.join(os.path.dirname(basedir),'libs','debs','archives')
 apt_sources_conf = os.path.join(os.path.dirname(basedir),'settings','sources.list')
 apt_conf = os.path.join(os.path.dirname(basedir),'settings','apt.conf')
@@ -45,17 +46,23 @@ def conf_apt():
     shutil.copytree(apt_pkgs,'/debs/archives')
     shutil.copy(apt_sources_conf,'/etc/apt/sources.list')
     shutil.copy(apt_conf,'/etc/apt/apt.conf')
-    subprocess.call(['apt-get','update'])
+    child = subprocess.Popen(['apt-get','update'],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+    (out,err) = child.communicate()
+    logger.info(out)
+    if err:
+        logger.error(err)
+    
 
-@add_log(__name__)
 def run():
     if os.path.exists(lockfile):
         print "You can only run this part once time"
         sys.exit(1)
     else:
+        logger.info('++++++++++++++ start initenv ++++++++++++++++++')
         conf_env()
         conf_apt()
         os.mknod(lockfile)
+        logger.info('++++++++++++++ end initenv ++++++++++++++++++')
 
 if __name__ == "__main__":
     run()
