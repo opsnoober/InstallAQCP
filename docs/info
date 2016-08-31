@@ -2,8 +2,8 @@ handler:  主要处理各模块的函数
 libs：    项目中需要用到的apt-get包及pip安装包
 lock：    锁文件存放目录
 logs:     安装日志目录
-res:      安装过程中用到的一些资源文件
 settings: 安装过程用到的配置文件
 utils:    工具类、方法目录
 main.py   主要执行文件
 conf.ini  安装配置文件
+app       应用程序目录
